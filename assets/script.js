@@ -45,10 +45,10 @@ function handleCurrentWeather(coordinates, city) {
 // display current weather function
 function displayCurrentWeather(currentCityData, cityName) {
   let weatherIcon = `http://openweathermap.org/img/wn/${currentCityData.weather[0].icon}.png`;
-  document.querySelector("#currentDayWeather").classList.add("five-day-card");
+  document.querySelector("#fiveDayTitle").innerHTML = `Five Day Forecast`;
   document.querySelector(
     "#currentDayWeather"
-  ).innerHTML = `<h2 class="ai-c d-f"><span class="">${cityName} ${moment
+  ).innerHTML = `<h3 class="m-t">Current Weather Forecast</h3><div class="five-day-card"><h2 class="ai-c d-f"><span class="">${cityName} ${moment
     .unix(currentCityData.dt)
     .format(
       "MMM Do YY"
@@ -61,7 +61,7 @@ function displayCurrentWeather(currentCityData, cityName) {
     currentCityData.humidity
   }%</div><span class="pad" id="uvIndex">UV Index: ${
     currentCityData.uvi
-  }</span>`;
+  }</span></div>`;
   //   UV Index color coding
   const uvIndexValue = currentCityData.uvi;
   if (uvIndexValue <= 2) {
