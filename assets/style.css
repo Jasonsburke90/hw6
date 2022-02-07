@@ -20,20 +20,33 @@ body {
   background-color: green;
 }
 
+.bgc-orange {
+  background-color: #c2571a;
+}
+
 .bgc-red {
-  background-color: red;
+  background-color: #ad2a1a;
 }
 
 .bgc-v-blue {
   background-color: #44ccff;
 }
 
-.bgc-yellow {
-  background-color: yellow;
-}
-
 .d-f {
   display: flex;
+}
+
+.five-day-card {
+  background-color: #623b5a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2rem;
+  outline: 2px groove #eff0d1;
+  padding: 1rem;
+  border-radius: 4px;
+  width: fit-content;
 }
 
 .m-t {

@@ -45,6 +45,7 @@ function handleCurrentWeather(coordinates, city) {
 // display current weather function
 function displayCurrentWeather(currentCityData, cityName) {
   let weatherIcon = `http://openweathermap.org/img/wn/${currentCityData.weather[0].icon}.png`;
+  document.querySelector("#currentDayWeather").classList.add("five-day-card");
   document.querySelector(
     "#currentDayWeather"
   ).innerHTML = `<h2 class="ai-c d-f"><span class="">${cityName} ${moment
@@ -66,7 +67,7 @@ function displayCurrentWeather(currentCityData, cityName) {
   if (uvIndexValue <= 2) {
     document.getElementById("uvIndex").classList.add("bgc-green");
   } else if (uvIndexValue <= 5) {
-    document.getElementById("uvIndex").classList.add("bgc-yellow");
+    document.getElementById("uvIndex").classList.add("bgc-orange");
   } else {
     document.getElementById("uvIndex").classList.add("bgc-red");
   }
@@ -78,12 +79,14 @@ function displayFiveDayForecast(fiveDayCityData) {
 
   cityData.forEach((day) => {
     let weatherIcon = `http://openweathermap.org/img/wn/${day.weather[0].icon}.png`;
-    document.querySelector("#fiveDayForecast").innerHTML += `<div><div>${moment
+    document.querySelector(
+      "#fiveDayForecast"
+    ).innerHTML += `<div class="five-day-card "><div>${moment
       .unix(day.dt)
       .format("MMM Do YY")}</div> <div><img src="${weatherIcon}"></div>
         <div>Temp: ${day.temp.day} \xB0F</div><div>Wind speed: ${
       day.wind_speed
-    } miles per hour</div> <div>Humidity: ${day.humidity}%</div></div>`;
+    } mph</div> <div>Humidity: ${day.humidity}%</div></div>`;
   });
 }
 // handle form submit
