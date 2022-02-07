@@ -58,7 +58,9 @@ function displayCurrentWeather(currentCityData, cityName) {
       currentCityData.wind_speed
     } miles per hour</div> <div class="pad">Humidity: ${
     currentCityData.humidity
-  }%</div><div class="pad" id="uvIndex">UV Index: ${currentCityData.uvi}</div>`;
+  }%</div><span class="pad" id="uvIndex">UV Index: ${
+    currentCityData.uvi
+  }</span>`;
   //   UV Index color coding
   const uvIndexValue = currentCityData.uvi;
   if (uvIndexValue <= 2) {

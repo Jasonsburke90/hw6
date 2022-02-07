@@ -1,5 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
 .ai-c {
   align-items: center;
+}
+
+.bgc-gray {
+  background-color: #a79ab2;
 }
 
 .bgc-green {
@@ -10,12 +24,20 @@
   background-color: red;
 }
 
+.bgc-v-blue {
+  background-color: #44ccff;
+}
+
 .bgc-yellow {
   background-color: yellow;
 }
 
 .d-f {
   display: flex;
+}
+
+.m-t {
+  margin-top: 10px;
 }
 
 .pad {
@@ -28,4 +50,8 @@
 
 .va-m {
   vertical-align: middle;
+}
+
+.va-t {
+  vertical-align: top;
 }

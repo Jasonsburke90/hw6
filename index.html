@@ -10,15 +10,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./assets/style.css" />
 
-<body>
-    <header>
+<body class="bgc-gray">
+    <header class="bgc-v-blue pad va-t">
         <!-- header -->
-        <div class="ta-c">Weather Dashboard</div>
+        <h1 class="pad ta-c">Weather Dashboard</h1>
     </header>
     <main class="d-f pad">
         <section class="pad">
             <!-- search box -->
-            <form class="pad" id="searchForm">
+            <form class="m-t pad" id="searchForm">
                 <input id="searchInput" type="text" placeholder="Chicago">
                 <button type="submit">Search</button>
             </form>
@@ -31,7 +31,7 @@
             <div class="pad" id="currentDayWeather"></div>
             <!-- 5 day forecast section -->
             <h3 class="pad">5-Day Forecast</h3>
-            <div class="d-f" id="fiveDayForecast"></div>
+            <div class="d-f pad" id="fiveDayForecast"></div>
         </section>
     </main>
     <script src="./assets/script.js"></script>
