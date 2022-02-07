@@ -10,7 +10,7 @@ function init() {
     searchHistory.city.forEach(function (city) {
       document.querySelector(
         "#searchHistoryDiv"
-      ).innerHTML += `<div><button data-city="${city}">${city}</button></div>`;
+      ).innerHTML += `<div><button class="button" data-city="${city}">${city}</button></div>`;
     });
   }
 }
@@ -95,7 +95,7 @@ function handleFormSubmit(event) {
   const city = document.querySelector("#searchInput").value.trim();
   document.querySelector(
     "#searchHistoryDiv"
-  ).innerHTML += `<button data-city="${city}">${city}</button>`;
+  ).innerHTML += `<button class="button" data-city="${city}">${city}</button>`;
   handleCoordinates(city);
   // set local storage with the city
   searchHistory.city.push(city);
