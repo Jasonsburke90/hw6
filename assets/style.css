@@ -36,6 +36,14 @@ body {
   display: flex;
 }
 
+.fw-w {
+  flex-wrap: wrap;
+}
+
+.italics {
+  font-style: italic;
+}
+
 .five-day-card {
   background-color: #623b5a;
   color: white;

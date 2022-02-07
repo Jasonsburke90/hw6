@@ -6,6 +6,8 @@ This project is a weather dashboard which receives data from a weather API. Sear
 
 ## screenshots
 
+![dashboard screenshot](./assets/images/weatherdashboard.png)
+
 ## links
 
 \* Here is the link to the repo [jasonburke/repo] (https://github.com/Jasonsburke90/hw6)
