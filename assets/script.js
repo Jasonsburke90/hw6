@@ -1,9 +1,19 @@
 // variables
-let searchHistory = { city: [] };
+let searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || {
+  city: [],
+};
 
 // functions
-// initialize to create buttons from history
-function init() {}
+// initialize to create buttons from saved search history
+function init() {
+  if (searchHistory != null) {
+    searchHistory.city.forEach(function (city) {
+      document.querySelector(
+        "#searchHistoryDiv"
+      ).innerHTML += `<div><button data-city="${city}">${city}</button></div>`;
+    });
+  }
+}
 // fetch function
 function handleCoordinates(searchCity) {
   const fetchUrl = `http://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=4b9f7dc3f8536150bc0eb915e8e4a81b`;
@@ -16,7 +26,7 @@ function handleCoordinates(searchCity) {
       handleCurrentWeather(data.coord, data.name);
     });
 }
-// take coordinates from the serach and fetch us the weather data for that city
+// take coordinates from the search and fetch us the weather data for that city
 function handleCurrentWeather(coordinates, city) {
   const lat = coordinates.lat;
   const lon = coordinates.lon;
@@ -35,7 +45,6 @@ function handleCurrentWeather(coordinates, city) {
 // display current weather function
 function displayCurrentWeather(currentCityData, cityName) {
   let weatherIcon = `http://openweathermap.org/img/wn/${currentCityData.weather[0].icon}.png`;
-  console.log(currentCityData);
   document.querySelector(
     "#currentDayWeather"
   ).innerHTML = `<h2>${cityName} ${moment
@@ -50,7 +59,6 @@ function displayCurrentWeather(currentCityData, cityName) {
   }%</div><div class="" id="uvIndex">UV Index: ${currentCityData.uvi}</div>`;
   //   UV Index color coding
   const uvIndexValue = currentCityData.uvi;
-  console.log(uvIndexValue);
   if (uvIndexValue <= 2) {
     document.getElementById("uvIndex").classList.add("bgc-green");
   } else if (uvIndexValue <= 5) {
@@ -79,7 +87,7 @@ function handleFormSubmit(event) {
   event.preventDefault();
   const city = document.querySelector("#searchInput").value.trim();
   document.querySelector(
-    "#searchHistory"
+    "#searchHistoryDiv"
   ).innerHTML += `<button data-city="${city}">${city}</button>`;
   handleCoordinates(city);
   // set local storage with the city
@@ -101,5 +109,5 @@ document
   .querySelector("#searchForm")
   .addEventListener("submit", handleFormSubmit);
 document
-  .querySelector("#searchHistory")
+  .querySelector("#searchHistoryDiv")
   .addEventListener("click", handleHistory);
