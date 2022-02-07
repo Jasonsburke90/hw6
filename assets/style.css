@@ -1,3 +1,15 @@
+.bgc-green {
+  background-color: green;
+}
+
+.bgc-red {
+  background-color: red;
+}
+
+.bgc-yellow {
+  background-color: yellow;
+}
+
 .d-f {
   display: flex;
 }

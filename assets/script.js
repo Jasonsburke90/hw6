@@ -1,6 +1,7 @@
 // variables
 
 // functions
+// fetch function
 function handleCoordinates(searchCity) {
   const fetchUrl = `http://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=4b9f7dc3f8536150bc0eb915e8e4a81b`;
 
@@ -12,7 +13,7 @@ function handleCoordinates(searchCity) {
       handleCurrentWeather(data.coord, data.name);
     });
 }
-
+// take coordinates from the serach and fetch us the weather data for that city
 function handleCurrentWeather(coordinates, city) {
   const lat = coordinates.lat;
   const lon = coordinates.lon;
@@ -28,11 +29,9 @@ function handleCurrentWeather(coordinates, city) {
       displayFiveDayForecast(data.daily);
     });
 }
-
+// display current weather function
 function displayCurrentWeather(currentCityData, cityName) {
   let weatherIcon = `http://openweathermap.org/img/wn/${currentCityData.weather[0].icon}.png`;
-  // todo: add UV index
-  // color code UV index if else, if else, else based on value
   console.log(currentCityData);
   document.querySelector(
     "#currentDayWeather"
@@ -43,9 +42,21 @@ function displayCurrentWeather(currentCityData, cityName) {
   } \xB0F</div>
     <div>Wind speed ${
       currentCityData.wind_speed
-    } miles per hour</div> <div>Humidity: ${currentCityData.humidity}%</div>`;
+    } miles per hour</div> <div>Humidity: ${
+    currentCityData.humidity
+  }%</div><div class="" id="uvIndex">UV Index: ${currentCityData.uvi}</div>`;
+  //   UV Index color coding
+  const uvIndexValue = currentCityData.uvi;
+  console.log(uvIndexValue);
+  if (uvIndexValue <= 2) {
+    document.getElementById("uvIndex").classList.add("bgc-green");
+  } else if (uvIndexValue <= 5) {
+    document.getElementById("uvIndex").classList.add("bgc-yellow");
+  } else {
+    document.getElementById("uvIndex").classList.add("bgc-red");
+  }
 }
-
+// display five day forecast
 function displayFiveDayForecast(fiveDayCityData) {
   const cityData = fiveDayCityData.slice(1, 6);
   document.querySelector("#fiveDayForecast").innerHTML = "";
@@ -60,7 +71,7 @@ function displayFiveDayForecast(fiveDayCityData) {
     } miles per hour</div> <div>Humidity: ${day.humidity}%</div></div>`;
   });
 }
-
+// handle form submit
 function handleFormSubmit(event) {
   event.preventDefault();
   const city = document.querySelector("#searchInput").value.trim();

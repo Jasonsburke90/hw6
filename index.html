@@ -8,29 +8,31 @@
     <title>Weather Dashboard</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
-</head>
+    <link rel="stylesheet" type="text/css" href="./assets/style.css" />
 
 <body>
     <header>
         <!-- header -->
         <div>Weather Dashboard</div>
     </header>
-    <aside>
-        <!-- search box -->
-        <form id="searchForm">
-            <input id="searchInput" type="text" placeholder="Chicago">
-            <button type="submit">Search</button>
-        </form>
-        <!-- display search history below -->
-        <div id="searchHistory">
-        </div>
-    </aside>
-    <main>
-        <!-- current weather section -->
-        <div id="currentDayWeather"></div>
-        <!-- 5 day forecast section -->
-        <h3>5-Day Forecast</h3>
-        <div id="fiveDayForecast"></div>
+    <main class="d-f">
+        <section>
+            <!-- search box -->
+            <form id="searchForm">
+                <input id="searchInput" type="text" placeholder="Chicago">
+                <button type="submit">Search</button>
+            </form>
+            <!-- display search history below -->
+            <div id="searchHistory">
+            </div>
+        </section>
+        <section>
+            <!-- current weather section -->
+            <div id="currentDayWeather"></div>
+            <!-- 5 day forecast section -->
+            <h3>5-Day Forecast</h3>
+            <div class="d-f" id="fiveDayForecast"></div>
+        </section>
     </main>
     <script src="./assets/script.js"></script>
 </body>
