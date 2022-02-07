@@ -47,16 +47,18 @@ function displayCurrentWeather(currentCityData, cityName) {
   let weatherIcon = `http://openweathermap.org/img/wn/${currentCityData.weather[0].icon}.png`;
   document.querySelector(
     "#currentDayWeather"
-  ).innerHTML = `<h2>${cityName} ${moment
+  ).innerHTML = `<h2 class="ai-c d-f"><span class="">${cityName} ${moment
     .unix(currentCityData.dt)
-    .format("MMM Do YY")} <img src="${weatherIcon}"></h2> <div>Temp: ${
+    .format(
+      "MMM Do YY"
+    )}</span> <img class="pad" src="${weatherIcon}"></h2> <div class="pad">Temp: ${
     currentCityData.temp
   } \xB0F</div>
-    <div>Wind speed ${
+    <div class="pad">Wind speed ${
       currentCityData.wind_speed
-    } miles per hour</div> <div>Humidity: ${
+    } miles per hour</div> <div class="pad">Humidity: ${
     currentCityData.humidity
-  }%</div><div class="" id="uvIndex">UV Index: ${currentCityData.uvi}</div>`;
+  }%</div><div class="pad" id="uvIndex">UV Index: ${currentCityData.uvi}</div>`;
   //   UV Index color coding
   const uvIndexValue = currentCityData.uvi;
   if (uvIndexValue <= 2) {

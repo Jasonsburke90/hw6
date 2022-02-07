@@ -1,3 +1,7 @@
+.ai-c {
+  align-items: center;
+}
+
 .bgc-green {
   background-color: green;
 }
@@ -12,4 +16,16 @@
 
 .d-f {
   display: flex;
+}
+
+.pad {
+  padding: 5px;
+}
+
+.ta-c {
+  text-align: center;
+}
+
+.va-m {
+  vertical-align: middle;
 }
