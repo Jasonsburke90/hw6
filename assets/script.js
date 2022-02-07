@@ -1,6 +1,9 @@
 // variables
+let searchHistory = { city: [] };
 
 // functions
+// initialize to create buttons from history
+function init() {}
 // fetch function
 function handleCoordinates(searchCity) {
   const fetchUrl = `http://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=4b9f7dc3f8536150bc0eb915e8e4a81b`;
@@ -78,8 +81,10 @@ function handleFormSubmit(event) {
   document.querySelector(
     "#searchHistory"
   ).innerHTML += `<button data-city="${city}">${city}</button>`;
-  // set local storage with the city
   handleCoordinates(city);
+  // set local storage with the city
+  searchHistory.city.push(city);
+  localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
 }
 
 function handleHistory(event) {
@@ -89,6 +94,7 @@ function handleHistory(event) {
 
 // listeners
 // on page load, show any past cities searched
+init();
 // search for city
 // click on city to show weather
 document
