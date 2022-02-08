@@ -16,7 +16,7 @@ function init() {
 }
 // fetch function
 function handleCoordinates(searchCity) {
-  const fetchUrl = `http://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=4b9f7dc3f8536150bc0eb915e8e4a81b`;
+  const fetchUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=4b9f7dc3f8536150bc0eb915e8e4a81b`;
 
   fetch(fetchUrl)
     .then(function (response) {
@@ -44,7 +44,7 @@ function handleCurrentWeather(coordinates, city) {
 }
 // display current weather function
 function displayCurrentWeather(currentCityData, cityName) {
-  let weatherIcon = `http://openweathermap.org/img/wn/${currentCityData.weather[0].icon}.png`;
+  let weatherIcon = `https://openweathermap.org/img/wn/${currentCityData.weather[0].icon}.png`;
   document.querySelector("#fiveDayTitle").innerHTML = `Five Day Forecast`;
   document.querySelector(
     "#currentDayWeather"
@@ -78,7 +78,7 @@ function displayFiveDayForecast(fiveDayCityData) {
   document.querySelector("#fiveDayForecast").innerHTML = "";
 
   cityData.forEach((day) => {
-    let weatherIcon = `http://openweathermap.org/img/wn/${day.weather[0].icon}.png`;
+    let weatherIcon = `https://openweathermap.org/img/wn/${day.weather[0].icon}.png`;
     document.querySelector(
       "#fiveDayForecast"
     ).innerHTML += `<div class="five-day-card "><div>${moment
